@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
-    "@hookform/resolvers": "^5.5.7",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.7.0",
     "@react-three/postprocessing": "^3.0.4",
@@ -23,8 +22,6 @@
     "postprocessing": "^6.39.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-hook-form": "^7.83.0",
-    "react-phone-number-input": "^3.4.17",
     "shadcn": "^4.16.0",
     "tailwind-merge": "^3.6.0",
     "three": "^0.185.1",

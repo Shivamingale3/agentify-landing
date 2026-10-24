@@ -4,7 +4,6 @@ export const envSchema = z.object({
   NODE_ENV: z
     .enum(["development", "production", "test"])
     .default("development"),
-  BACKEND_URL: z.url(),
   /**
    * Public origin this app is served from. Server-only: it feeds `metadataBase`,
    * the canonical URL, `robots.txt` and `sitemap.xml`, none of which run in the

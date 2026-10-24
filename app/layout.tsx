@@ -3,7 +3,6 @@ import { Oxanium } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/toast";
 import { env } from "@/lib/config/env";
 import { SITE } from "@/lib/seo/site";
 
@@ -73,7 +72,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>

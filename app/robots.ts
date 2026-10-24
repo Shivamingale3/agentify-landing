@@ -21,7 +21,6 @@ export default function robots(): MetadataRoute.Robots {
         "/forgot-password",
         "/reset-password",
         "/verify-email",
-        "/home",
       ],
     },
     sitemap: absoluteUrl("/sitemap.xml"),
