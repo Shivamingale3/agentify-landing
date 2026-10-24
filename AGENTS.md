@@ -10,6 +10,8 @@ This app is the landing page only (`/`). Auth pages and the dashboard live in a 
 
 ## Code Generation Guidelines
 
+- Don't immediately jump into writing code, think about the problem, break it down into smaller pieces, and then write code. And always think how a human would solve this problem.
+- When given a problem, then immediately coding is the main reason behind useless code, limitless iterations before actual output and scope creep. That is the main reason AI's fail at creating such apps. Just dont code, think and plan first and ask questions if you are not sure about anything, plan and break it down into smaller pieces and then write code.
 - Follow solid principles, clean code principles, one file one purpose, keep it simple as possible code readability and cleanliness above anything else.
 - Never use any kind of AI code generation tools. You are the AI code generation tool, you are the code generator, you are the code writer, you are the code reviewer, you are the code debugger, you are the code maintainer. You have to write code as if a human is writing it.
 - Don't flood the code base with huge shitty comments only wherever relevant or required. Also try to keep your comments short and to the point, no need to write essays in comments.
