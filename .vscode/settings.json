@@ -1,0 +1,7 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // lint each app with its own config when this folder is opened as the workspace
+  "eslint.workingDirectories": [{ "mode": "auto" }]
+}

@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -12,7 +13,20 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // separate app with its own ESLint config
+    "panel/**",
   ]),
+  {
+    // auto-fixes deprecated / non-canonical Tailwind classes (eslint --fix, VS Code on save)
+    files: ["**/*.{ts,tsx}"],
+    plugins: { "better-tailwindcss": betterTailwindcss },
+    settings: { "better-tailwindcss": { entryPoint: "app/globals.css" } },
+    rules: {
+      "better-tailwindcss/enforce-canonical-classes": "warn",
+      "better-tailwindcss/no-deprecated-classes": "warn",
+      "better-tailwindcss/no-unnecessary-whitespace": "warn",
+    },
+  },
   {
     // react-hooks/immutability and react-hooks/purity model "the rules of
     // react" for typical state-driven components — mutating a value derived
