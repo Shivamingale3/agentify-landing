@@ -1,13 +1,8 @@
-import { env } from "@/lib/config/env";
+import { env } from "@/lib/env";
 
 /**
- * Single source of truth for every SEO surface: `<head>` metadata, the
- * canonical URL, robots.txt, sitemap.xml, JSON-LD and the generated OG image.
- *
- * Server-only — it reads `FRONTEND_URL`, which is not a `NEXT_PUBLIC_` var.
- * Importing this from a client component would leak it into the browser
- * bundle (and fail the build), so keep it to `metadata` exports, route
- * handlers and server components.
+ * Single source for every SEO surface (metadata, robots, sitemap, JSON-LD, OG).
+ * Server-only: it reads FRONTEND_URL, so never import it from a client component.
  */
 export const SITE = {
   name: env.NEXT_PUBLIC_APP_NAME,
@@ -19,10 +14,7 @@ export const SITE = {
 /** The `/` page title. Used verbatim as `<title>` and `og:title`. */
 export const HOME_TITLE = `${SITE.name} — ship an agent, not a chatbot.`;
 
-/**
- * The `/` meta description. ~155 chars is the practical SERP truncation point;
- * the lead clause carries the pitch so it survives being cut.
- */
+/** ~155 chars before SERPs truncate; the lead clause carries the pitch. */
 export const HOME_DESCRIPTION =
   "Assemble a real agentic bot in a minute — persona, knowledge, tools, embed one line of HTML. For sales teams that ship leads to CRM, calendars, and DB without writing code.";
 

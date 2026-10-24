@@ -9,10 +9,7 @@ const SNIPPET = `<script src="https://cdn.agentify.ai/embed.js"
   defer
 ></script>`;
 
-/**
- * The finale's embed snippet + copy-to-clipboard button. Single
- * responsibility: let the reader copy the snippet, and confirm they did.
- */
+/** The finale's embed snippet with a copy button. */
 export default function EmbedSnippet() {
   const [copied, setCopied] = useState(false);
 

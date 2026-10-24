@@ -1,21 +1,18 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
 import { Preload } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import * as THREE from "three";
-import BotHead from "./bot-head";
-import ShipEmitter from "./ship-emitter";
-import ResponsiveCamera, { FOG_COLOR } from "./responsive-camera";
-import BotLighting from "./bot-lighting";
+import { BACKDROP } from "@/lib/bot/colors";
 import BotEnvironment from "./bot-environment";
+import BotHead from "./bot-head";
+import BotLighting from "./bot-lighting";
 import BotPostProcessing from "./post-processing";
+import ResponsiveCamera from "./responsive-camera";
+import ShipEmitter from "./ship-emitter";
 
-/**
- * Composition root for the 3D bot: wires the Canvas, camera, lighting,
- * environment, the head itself, and post-processing together. Each of those
- * is its own file — this one only assembles them.
- */
+/** Composition root for the 3D head. */
 export default function BotScene() {
   return (
     <Canvas
@@ -27,24 +24,16 @@ export default function BotScene() {
         toneMappingExposure: 1.05,
       }}
       dpr={[1, 1.5]}
-      onCreated={({ scene, gl }) => {
-        scene.background = FOG_COLOR;
-        gl.toneMapping = THREE.ACESFilmicToneMapping;
-        gl.toneMappingExposure = 1.05;
-      }}
+      scene={{ background: BACKDROP }}
     >
       <Suspense fallback={null}>
         <ResponsiveCamera />
         <BotLighting />
-
         <BotHead />
         <ShipEmitter />
-
         <BotEnvironment />
-
         <Preload all />
       </Suspense>
-
       <BotPostProcessing />
     </Canvas>
   );

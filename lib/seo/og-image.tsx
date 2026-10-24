@@ -3,18 +3,9 @@ import { ImageResponse } from "next/og";
 import { SITE, SOCIAL_DESCRIPTION } from "@/lib/seo/site";
 
 /**
- * The social card shared by `app/opengraph-image.tsx` and
- * `app/twitter-image.tsx` — one definition, two file-convention entry points,
- * so the two never drift.
- *
- * Rendered at build time by satori, which supports flexbox only (no grid) and
- * requires an explicit `display` on any element with more than one child.
- * Deliberately monochrome-on-black to match the force-dark landing page rather
- * than the app's themeable surfaces.
- *
- * Uses satori's bundled sans rather than Oxanium: `next/font/google` fetches
- * into the build cache and exposes no file path to read here. Uppercase and
- * wide tracking carry the brand's typographic character instead.
+ * Social card shared by opengraph-image and twitter-image. Satori is
+ * flexbox-only and needs explicit `display` on multi-child elements. Uses the
+ * bundled sans: next/font exposes no file path to load Oxanium from here.
  */
 export const renderOgImage = () =>
   new ImageResponse(

@@ -1,0 +1,79 @@
+/* Agentify design tokens: monochrome, Oxanium only, square corners.
+   The landing page is always `.dark`. The `.light` block is the source the
+   email templates mirror (see AGENTS.md); keep the two in sync. */
+
+/* dark (AMOLED) is the default */
+:root,
+.dark {
+  --background: #000000;
+  --card: #0b0b0b;
+  --secondary: #161616;
+  --popover: #0b0b0b;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --input: rgba(255, 255, 255, 0.09);
+  --ring: rgba(255, 255, 255, 0.3);
+
+  --foreground: #fafafa;
+  --card-foreground: #fafafa;
+  --secondary-foreground: #fafafa;
+  --muted-foreground: #7d7d7d;
+
+  --primary: #ffffff;
+  --primary-hover: #e2e2e2;
+  --primary-foreground: #000000;
+}
+
+.light {
+  --background: #ffffff;
+  --card: #f6f6f7;
+  --secondary: #ececee;
+  --popover: #ffffff;
+
+  --border: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.22);
+  --input: rgba(0, 0, 0, 0.1);
+  --ring: rgba(0, 0, 0, 0.3);
+
+  --foreground: #0a0a0a;
+  --card-foreground: #0a0a0a;
+  --secondary-foreground: #0a0a0a;
+  --muted-foreground: #6b6b70;
+
+  --primary: #000000;
+  --primary-hover: #242424;
+  --primary-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--secondary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: "Oxanium", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-sans);
+
+  /* square corners everywhere; rounded-full is kept for dots only */
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-full: 9999px;
+}

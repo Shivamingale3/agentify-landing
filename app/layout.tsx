@@ -2,8 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Oxanium } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
-import { env } from "@/lib/config/env";
+import { env } from "@/lib/env";
 import { SITE } from "@/lib/seo/site";
 
 const oxanium = Oxanium({
@@ -12,11 +11,7 @@ const oxanium = Oxanium({
 });
 
 export const metadata: Metadata = {
-  /**
-   * Lets every route below express `openGraph.url`, `alternates.canonical` and
-   * image paths as relative strings. Without it, relative URL-based metadata is
-   * a build error and social crawlers get no absolute image URL.
-   */
+  // lets routes use relative canonical/OG URLs
   metadataBase: new URL(SITE.url),
   title: {
     default: `${SITE.name} — ${SITE.tagline}`,
@@ -30,9 +25,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    // `summary_large_image` is what promotes the OG card from a thumbnail to a
-    // full-bleed preview. It only takes effect because app/twitter-image.tsx
-    // supplies an image — without one, X silently downgrades to `summary`.
+    // needs app/twitter-image.tsx, or X downgrades to `summary`
     card: "summary_large_image",
   },
   robots: {
@@ -41,8 +34,7 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      // Defaults cap SERP snippets and forbid large thumbnails; opting out of
-      // both is what lets Google render the full description and a big image.
+      // uncap snippets and allow large image previews in SERPs
       "max-snippet": -1,
       "max-image-preview": "large",
       "max-video-preview": -1,
@@ -51,28 +43,19 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark light",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
+  // the landing page is always dark: its 3D lighting is tuned for a black backdrop
+  colorScheme: "dark",
+  themeColor: "#000000",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      suppressHydrationWarning
-      className={cn("h-full", "antialiased", "font-sans", oxanium.variable)}
+      className={cn("dark h-full antialiased font-sans", oxanium.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

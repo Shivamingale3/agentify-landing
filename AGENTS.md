@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Scope
 
-This app is the landing page only (`/`). Auth pages and the dashboard live in a separate React app.
+This app is the landing page only (`/`). Auth pages and the dashboard live in a separate React app. Given any task in this repo is not the final goal it is just a checkpoint to final goal, the main end goal is to create a Good looking, responsive, attractive landing page, that shows the app intent and brand and a damn good seo that any search regarding "agent" should show this app on web.
 
 ## Code Generation Guidelines
 
